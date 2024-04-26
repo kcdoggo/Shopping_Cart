@@ -1,14 +1,32 @@
-#how to use 
 
-1. git clone
-2. if you want to test with Jest, open the terminal and type 
-   -> npm test
-3. you can test with Postman
-  3.1 [POST] http://localhost:3000/process
-  3.2 test code 
-    [{"code":"A","quantity":3},{"code":"B","quantity":3},{"code":"C","quantity":1},{"code":"D","quantity":2}]
-4. you can check documentation with jsdocs
-   -> npm run doc
-   -> open docs/index.html with Open with live server
-   
-   
+## How to Use
+
+1. **Clone the repository**:  
+   ```
+   git clone <repository_url>
+   ```
+
+2. **Testing with Jest**:  
+   If you want to test the project with Jest, open the terminal and run the following command:  
+   ```
+   npm test
+   ```
+
+3. **Testing with Postman**:  
+   - Send a POST request to `http://localhost:3000/process`
+   - Use the following test code:
+     ```
+     [
+       {"code":"A","quantity":3},
+       {"code":"B","quantity":3},
+       {"code":"C","quantity":1},
+       {"code":"D","quantity":2}
+     ]
+     ```
+
+4. **Documentation with JSDoc**:  
+   - Generate documentation using JSDoc by running:
+     ```
+     npm run doc
+     ```
+   - Open `docs/index.html` with a browser or using "Open with Live Server" for a better viewing experience.
