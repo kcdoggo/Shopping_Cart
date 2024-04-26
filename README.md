@@ -29,4 +29,4 @@
      ```
      npm run doc
      ```
-   - Open `docs/index.html` with a browser or using "Open with Live Server" for a better viewing experience.
+   - Open `docs/index.html` using "Open with Live Server" 
