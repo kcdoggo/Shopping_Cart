@@ -11,17 +11,19 @@ function PriceHandler(ItemInfo) {
 
     let totalPrice = 0;
 
-    for (const [key, value] of Object.entries(ItemInfo)) {
-        const specialItem = SpecialItems[key]; 
+    for (const item of ItemInfo) {
+        const specialItem = SpecialItems[item.code]; 
 
         if (specialItem) {
-            const set = Math.floor(value / specialItem.quantity); 
-            const modulo = value % specialItem.quantity;
-            totalPrice += set * specialItem.price + modulo * Items[key]; 
+
+            const sp_quantity = specialItem.quantity;
+            const sp_price = specialItem.price;
+
+            const set = Math.floor(item.quantity / sp_quantity); 
+            const modulo = item.quantity % sp_quantity;
+            totalPrice += set * sp_price + modulo * Items[item.code]; 
         }else{
-            totalPrice+= value * Items[key] ; 
-
-
+            totalPrice+= item.quantity * Items[item.code] ; 
         }
 
     }

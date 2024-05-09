@@ -10,17 +10,22 @@ const priceHandler = require('./PriceHandler');
  */
 
 function checkoutHandler(req, res) {
-    let totalPrice = 0;
+
+
+        const menuObArr = req.body;
 
         try{
-            SimplifiedObj = SimplifyObj(req.body)
-            totalPrice = priceHandler(SimplifiedObj);
+            if(!isValidPriceNMenu(menuObArr)){
+                throw new Error('Input data is not valid');
+            }
 
+
+            totalPrice = priceHandler(menuObArr);
             const jsonResponse = {
                 totalPrice : totalPrice
             };
 
-              res.json(jsonResponse);
+            res.json(jsonResponse);
             
         }catch(error){
             res.status(400).json({ error: error.message });
@@ -30,12 +35,16 @@ function checkoutHandler(req, res) {
     }
 
 
+
 /**
  * Transforms an array of objects representing product codes and quantities into a simplified object.<br>
  * {"code":"A","quantity":3} to {A:3,B:3}
  * @param {Array<object>} items - An array of objects containing product codes and quantities.
  * @returns {object} An object with product codes as keys and their quantities as values.
- */function SimplifyObj(items) {
+ */
+
+/*
+function SimplifyObj(items) {
     const SimplifiedObj = {};
     for (const item of items) {
         const code = item.code;
@@ -50,17 +59,34 @@ function checkoutHandler(req, res) {
         }
         return SimplifiedObj;
     }    
+*/
+
 
 /**
  * Check if the input is a valid number
  * @param {number} num 
  * @returns {boolean} 
  */
-    function isValidPrice(num) {
-        return  num >= 0 && typeof num === 'number' && !isNaN(num) && isFinite(num) ;
+    function isValidPriceNMenu(objArr) {
+
+        for(const item of objArr){
+            if(!(item.code in items)){
+                return false;
+            }
+            const q = item.quantity
+            if(q < 0 || typeof q !== 'number' || isNaN(q) || !isFinite(q)){
+                return false;
+            }
+
+            
+        }
+        return true;
+    
+
 }
 
 
 
 
 module.exports = checkoutHandler;
+module.exports = isValidPriceNMenu;
