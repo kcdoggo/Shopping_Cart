@@ -62,5 +62,4 @@ function checkoutHandler(req, res) {
 
 
 
-module.exports = checkoutHandler;
-module.exports = isValidPriceNMenu;
+module.exports = {checkoutHandler, isValidPriceNMenu};

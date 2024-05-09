@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
   });
   
 
-app.post('/process', checkoutHandler);
+app.post('/process', checkoutHandler.checkoutHandler);
 
 
 app.listen(PORT, () => {
