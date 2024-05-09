@@ -43,6 +43,9 @@ function checkoutHandler(req, res) {
 
         if(!isValidPrice(quantity)){
             throw new Error(`Invalid price for product ${code}: ${quantity}`);        }
+        
+        SimplifiedObj[code] = quantity
+
 
         }
         return SimplifiedObj;
