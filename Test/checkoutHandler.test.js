@@ -1,4 +1,3 @@
-const isValidPriceNMenu = require('../Handler/checkoutHandler');
 const checkoutHandler = require('../Handler/checkoutHandler');
 
 
@@ -11,7 +10,7 @@ test('Item E is not on the menu',()=>{
         {"code": "A",
         "quantity" : "ba"},
     ]
-    expect(isValidPriceNMenu(item)).toBe(false);
+    expect(checkoutHandler.isValidPriceNMenu(item)).toBe(false);
 })
 
 test('quantity input data is incorrect', () => {
@@ -20,5 +19,5 @@ test('quantity input data is incorrect', () => {
         { "code": "A", "quantity": "!" },
     ];
 
-    expect(isValidPriceNMenu(item)).toEqual(false);
+    expect(checkoutHandler.isValidPriceNMenu(item)).toEqual(false);
 });
