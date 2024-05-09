@@ -37,32 +37,6 @@ function checkoutHandler(req, res) {
 
 
 /**
- * Transforms an array of objects representing product codes and quantities into a simplified object.<br>
- * {"code":"A","quantity":3} to {A:3,B:3}
- * @param {Array<object>} items - An array of objects containing product codes and quantities.
- * @returns {object} An object with product codes as keys and their quantities as values.
- */
-
-/*
-function SimplifyObj(items) {
-    const SimplifiedObj = {};
-    for (const item of items) {
-        const code = item.code;
-        const quantity = item.quantity;
-
-        if(!isValidPrice(quantity)){
-            throw new Error(`Invalid price for product ${code}: ${quantity}`);        }
-        
-        SimplifiedObj[code] = quantity
-
-
-        }
-        return SimplifiedObj;
-    }    
-*/
-
-
-/**
  * Check if the input is a valid number
  * @param {number} num 
  * @returns {boolean} 
