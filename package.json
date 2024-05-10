@@ -12,7 +12,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "jest --verbose ./Test",
+    "test": "jest --verbose --runInBand --detectOpenHandles --no-cache --watchAll ./Test",
     "dev": "nodemon app.js",
     "doc": "jsdoc -c jsdoc.json"
   },
